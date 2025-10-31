@@ -1,0 +1,38 @@
+xrun: 23.09-s001: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	23.09-s001: Started on Oct 31, 2025 at 00:02:45 EDT
+xrun
+	-Q
+	-unbuffered
+	-timescale 1ns/1ns
+	-sysv
+	-access +rw
+	design.sv
+	testbench.sv
+	Top level design units:
+		$unit_0x67f934e9
+		tb_top
+Loading snapshot worklib.tb_top:sv .................... Done
+SVSEED default: 1
+xcelium> source /xcelium23.09/tools/xcelium/files/xmsimrc
+xcelium> run
+[MON] WRITE captured: data_in = 143
+[SB] WRITE logged: data_in = 143
+[MON] WRITE captured: data_in = 76
+[SB] WRITE logged: data_in = 76
+[MON] READ captured: data_out = 143
+[SB] MATCH: expected=143, got=143 
+[MON] WRITE captured: data_in = 43
+[SB] WRITE logged: data_in = 43
+[MON] READ captured: data_out = 76
+[SB] MATCH: expected=76, got=76 
+[MON] READ captured: data_out = 43
+[SB] MATCH: expected=43, got=43 
+[MON] WRITE captured: data_in = 219
+[SB] WRITE logged: data_in = 219
+[MON] READ captured: data_out = 219
+[SB] MATCH: expected=219, got=219 
+Accuracy = 100.00%
+Simulation complete via $finish(1) at time 54 PS + 6
+./env.sv:21     $finish;
+xcelium> exit
+TOOL:	xrun	23.09-s001: Exiting on Oct 31, 2025 at 00:02:46 EDT  (total: 00:00:01)
