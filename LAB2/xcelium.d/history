@@ -1,0 +1,7 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(01Nov2025:00:07:07):( xrun -sv -f filelist.f -access +rwc )
+s2::(01Nov2025:00:07:19):( xrun -sv -f filelist.f -access +rwc -gui )
+s3::(01Nov2025:00:18:09):( xrun -sv -f filelist.f -access +rwc -gui )

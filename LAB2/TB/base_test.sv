@@ -1,0 +1,11 @@
+`include "package.sv"
+import adder_pkg::*;
+program base_test(add_if vif);
+  env env_o;
+  
+  initial begin
+    env_o = new(vif);
+    env_o.agt.gen.count = 5;
+    env_o.run();
+  end
+endprogram

@@ -1,0 +1,39 @@
+xrun: 22.09-s004: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun	22.09-s004: Started on Nov 01, 2025 at 00:18:09 +07
+xrun
+	-sv
+	-f filelist.f
+		+incdir+./TB
+		RTL/adder.v
+		TB/package.sv
+		TB/testbench.sv
+	-access +rwc
+	-gui
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /mnt/CADENCE/xcelium_2209/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm tb_top.DUT.clk tb_top.DUT.in1 tb_top.DUT.in2 tb_top.DUT.out tb_top.DUT.rst_n tb_top.t1.env_o tb_top.vif.clk tb_top.vif.ip1 tb_top.vif.ip2 tb_top.vif.out tb_top.vif.rst_n -depth 2 -all
+Created probe 1
+xcelium> run
+stop -create -name Randomize -randomize
+Created stop Randomize
+
+[SCOREBOARD] MATCHED: ip1=4, ip2=29, out=33
+[SCOREBOARD] MATCHED: ip1=57, ip2=26, out=83
+[SCOREBOARD] MATCHED: ip1=79, ip2=36, out=115
+[SCOREBOARD] MATCHED: ip1=75, ip2=25, out=100
+[SCOREBOARD] MATCHED: ip1=98, ip2=53, out=151
+Simulation complete via $finish(1) at time 42 NS + 3
+./TB/env.sv:20     $finish;
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun	22.09-s004: Exiting on Nov 01, 2025 at 10:12:34 +07  (total: 09:54:25)

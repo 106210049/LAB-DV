@@ -1,0 +1,3 @@
+1761926908 /home/DN02/DV_LAB/LAB2/RTL/adder.v
+1761930382 /home/DN02/DV_LAB/LAB2/TB/package.sv
+1761926908 /home/DN02/DV_LAB/LAB2/TB/testbench.sv
