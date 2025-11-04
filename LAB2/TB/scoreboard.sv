@@ -3,20 +3,24 @@ class scoreboard;
   mailbox mon_to_sb;
   int expected;
 
+  // Import hàm DPI t? C
+  
+
   function new(mailbox mon_to_sb);
     this.mon_to_sb = mon_to_sb;
     this.compare_cnt = 0;
   endfunction
 
   task run;
+    transaction tr;
+
     forever begin
-      transaction tr;
-      mon_to_sb.get(tr);  // Nhận transaction từ monitor
+      mon_to_sb.get(tr);  // Nh?n transaction t? monitor
 
-      // Reference output trực tiếp trong SV
-      expected = tr.ip1 + tr.ip2;
+      // G?i hàm reference model b?ng DPI
+      expected = golden_add_model(tr.ip1, tr.ip2);
 
-      // So sánh kết quả DUT với reference
+      // So sánh k?t qu? DUT v?i model
       if (expected == tr.out) begin
         $display("[SCOREBOARD] MATCHED: ip1=%0d, ip2=%0d, out=%0d", 
                  tr.ip1, tr.ip2, tr.out);
@@ -29,3 +33,4 @@ class scoreboard;
     end
   endtask
 endclass
+
